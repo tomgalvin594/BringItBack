@@ -7,6 +7,8 @@
 
 #include "main.hpp"
 
+#include "ResourcePath.hpp"
+
 int main()
 {
 #ifdef DEV_KEEPCONSOLEOPEN
@@ -25,18 +27,18 @@ int main()
 
 	const std::vector<std::string> musicFilenames
 	{
-		"resources/audio/forwards.ogg",
-		"resources/audio/backwards.ogg"
+		resourcePath() + "audio/forwards.ogg",
+		resourcePath() + "audio/backwards.ogg"
 	};
 	hx::Depot::Sfml::ResourceManagerBasic resources;
 	try
 	{
 		//resources.addFont("generic", "resources/fonts/arial.ttf");
-		resources.addFont("main", "resources/fonts/msyi.ttf");
-		resources.addTexture("title screen", "resources/images/titlescreen.jpg");
-		resources.addTexture("title header", "resources/images/titleheader.jpg");
-		resources.addTexture("title small", "resources/images/titlesmall.png");
-		resources.addSoundBuffer("activate", "resources/audio/activate.wav");
+		resources.addFont("main", resourcePath() + "fonts/msyi.ttf");
+		resources.addTexture("title screen", resourcePath() + "images/titlescreen.jpg");
+		resources.addTexture("title header", resourcePath() + "images/titleheader.jpg");
+		resources.addTexture("title small", resourcePath() + "images/titlesmall.png");
+		resources.addSoundBuffer("activate", resourcePath() + "audio/activate.wav");
 	}
 	catch (char* e)
 	{

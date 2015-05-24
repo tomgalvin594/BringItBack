@@ -72,7 +72,7 @@ void Tilemap::update()
 
 void Tilemap::setTiles(std::vector<int>& tiles)
 {
-	const unsigned int leastNumberOfTiles{ hx::min(m_tiles.size(), tiles.size()) };
+	const unsigned int leastNumberOfTiles{ static_cast<unsigned int>(hx::min(m_tiles.size(), tiles.size())) };
 	for (unsigned int t{ 0 }; t < leastNumberOfTiles; ++t)
 		m_tiles[t] = tiles[t];
 }
